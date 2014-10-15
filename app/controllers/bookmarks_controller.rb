@@ -3,11 +3,34 @@ class BookmarksController < ApplicationController
 
   def index
     # @bookmarks = Bookmark.order_by_desc_date
+    @tag = params[:tag]
+    @hash_tags = []
+    
+    Bookmark.tag_counts do |tag|
+       @hash_tags << tag.name 
+    end 
 
     if params[:tag]
       @bookmarks = Bookmark.tagged_with(params[:tag]).order_by_desc_date
     else
-      @bookmarks = Bookmark.all.order_by_desc_date
+      @hash_tags = ActsAsTaggableOn::Tag.all
+      @hash_tags.each do |hash_tag| 
+        Bookmark.tagged_with([hash_tag]).each do |bookmark|
+          @bookmarks = []
+          @bookmarks << bookmark
+          @bookmarks 
+        end
+      end
+
+      #@bookmarks = Bookmark.all.order_by_desc_date
+      
+      
+      #   @hash_tag = hash_tag
+      # end
+
+      # (Bookmark.tagged_with([hash_tag])).each do |bookmark| 
+        
+      #end
     end
 
   end
