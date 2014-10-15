@@ -17,7 +17,7 @@
     
     <% @hash_tags.each do |hash_tag| %>
       <br />
-      <%= hash_tag %>
+      <h2><%= hash_tag %></h2>
       <% (Bookmark.tagged_with([hash_tag])).each do |bookmark| %><br />
         <%= bookmark.title %>
       <% end %>
