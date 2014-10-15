@@ -11,6 +11,7 @@
       <h2><%= link_to "##{hash_tag}", "#{hash_tag}_path" %></h2>
       <% (Bookmark.tagged_with([hash_tag])).each do |bookmark| %><br />
         <%= link_to bookmark.title, bookmark %>
+        <%= raw bookmark.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
       <% end %>
     <% end %>
   </div>
