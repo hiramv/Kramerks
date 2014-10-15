@@ -8,7 +8,7 @@
 
     <% @hash_tags.each do |hash_tag| %>
       <br />
-      <h2><%= "##{hash_tag}" %></h2>
+      <h2><%= link_to "##{hash_tag}", "#{hash_tag}_path" %></h2>
       <% (Bookmark.tagged_with([hash_tag])).each do |bookmark| %><br />
         <%= link_to bookmark.title, bookmark %>
       <% end %>
