@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 20141014205245) do
     t.integer  "user_id"
   end
 
+  create_table "favorites", force: true do |t|
+    t.integer  "bookmark_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "favorites", ["bookmark_id"], name: "index_favorites_on_bookmark_id"
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
+
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"

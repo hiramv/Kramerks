@@ -29,6 +29,9 @@ gem 'figaro'
 
 gem 'acts-as-taggable-on'
 
+# adding this to production so we can seed on heroku
+gem 'faker'
+
 group :test do
   gem 'factory_girl_rails'
   gem 'launchy'
@@ -38,7 +41,6 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'faker'
 end
 
 group :development do
