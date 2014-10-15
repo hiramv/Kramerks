@@ -49,6 +49,7 @@ group :production do
   #as required by Heroku
   gem 'pg'
   gem 'rails_12factor'
+  gem 'faker'
 end
 
 #used to validate urls
